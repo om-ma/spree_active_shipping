@@ -1,4 +1,4 @@
-Spree::Admin::ProductsController.class_eval do
+module Spree::Admin::ProductsControllerDecorator
   def product_packages
     @product = Spree::Product.find_by_slug!(params[:id])
     @packages = @product.product_packages
@@ -10,3 +10,4 @@ Spree::Admin::ProductsController.class_eval do
     end
   end
 end
+Spree::Admin::ProductsController.prepend Spree::Admin::ProductsControllerDecorator
