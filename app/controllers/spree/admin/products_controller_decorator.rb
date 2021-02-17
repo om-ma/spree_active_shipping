@@ -10,4 +10,4 @@ module Spree::Admin::ProductsControllerDecorator
     end
   end
 end
-+Spree::Admin::ProductsController.prepend Spree::Admin::ProductsControllerDecorator
+Spree::Admin::ProductsController.prepend Spree::Admin::ProductsControllerDecorator
