@@ -69,6 +69,10 @@ module Spree
             error = Spree::ShippingError.new("#{I18n.t(:shipping_error)}: #{message}")
             Rails.cache.write @cache_key, error #write error to cache to prevent constant re-lookups
             raise error
+          rescue ::ActiveUtils::ConnectionError => e
+            error = Spree::ShippingError.new("#{I18n.t(:shipping_error)}: #{e.message}")
+            Rails.cache.write @cache_key, error #write error to cache to prevent constant re-lookups
+            raise error
           end
 
         end
