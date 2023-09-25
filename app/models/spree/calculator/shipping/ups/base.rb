@@ -9,7 +9,8 @@ module Spree
             login: Spree::ActiveShipping::Config[:ups_login],
             password: Spree::ActiveShipping::Config[:ups_password],
             key: Spree::ActiveShipping::Config[:ups_key],
-            test: Spree::ActiveShipping::Config[:test_mode]
+            test: Spree::ActiveShipping::Config[:test_mode],
+            service_name: description
           }
 
           if shipper_number = Spree::ActiveShipping::Config[:shipper_number]
